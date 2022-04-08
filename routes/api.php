@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::apiResource('v1/post', \App\Http\Controllers\Api\v1\PostController::class)->only('show');
+Route::apiResource('v1/post', \App\Http\Controllers\Api\v1\PostController::class)->only(['index','show']);
 
 // add
 // Route::apiResource('v1/posts', PostV1::class)

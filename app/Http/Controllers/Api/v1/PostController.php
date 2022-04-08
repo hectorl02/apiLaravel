@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
+//para cambiar visualizacion en postman
+use App\Http\Resources\v1\PostResource;
+
 class PostController extends Controller
 {
     /**
@@ -16,6 +19,7 @@ class PostController extends Controller
     public function index()
     {
         //
+        return PostResource::collection(Post::latest()->paginate());
     }
 
     /**
@@ -37,8 +41,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
-        return $post;
+        // formato para api
+        return new PostResource($post);
     }
 
     /**
