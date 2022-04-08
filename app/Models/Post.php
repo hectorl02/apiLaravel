@@ -20,6 +20,7 @@ class Post extends Model
         return $this->created_at->format('d/m/Y');
     }
 
+    //relacion con user
     public function user()
     {
         return $this->beLongsTo(User::class);
